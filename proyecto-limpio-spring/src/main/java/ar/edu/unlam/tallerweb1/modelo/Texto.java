@@ -31,20 +31,34 @@ public class Texto {
 		this.resultado = resultado;
 	}
 	
-	public String cambiarTextoIngresado(Integer opcion,String cadena) {
+	/*public String cambiarTextoIngresado(Integer opcion,String cadena) {
 		switch(opcion) {
 		case 1: this.resultado=cadena.toUpperCase();
 		break;
 		case 2: this.resultado = cadena.toLowerCase();
 		break;
-		case 3: for (int x=cadena.length()-1;x<cadena.length()&&x>=0;x--)this.resultado = this.resultado + cadena.charAt(x);
+		case 3: for (int x=cadena.length()-1;x>=0;x--)this.resultado = this.resultado + cadena.charAt(x);
 		break;
 		case 4: this.resultado = Integer.toString(cadena.length());
 		break;
 		default:this.resultado = "error";
 		}
 		return this.resultado;
-	}
+	}*/
 	
+	public String cambiarTextoIngresado() {
+		switch(this.opcion) {
+		case 1: this.resultado=this.txt.toUpperCase();
+		break;
+		case 2: this.resultado = this.txt.toLowerCase();
+		break;
+		case 3: for (int x=this.txt.length()-1;x>=0;x--)this.resultado = this.resultado + this.txt.charAt(x);
+		break;
+		case 4: this.resultado = Integer.toString(this.txt.length());
+		break;
+		default:this.resultado = "error";
+		}
+		return this.resultado;
+	}
 	
 }

@@ -21,7 +21,7 @@ public class TestCapitalNorteCancer extends SpringTest{
 	@Transactional @Rollback(true)
 	public void testCapitalesAlNorteDeCancer() {
 		Session session = getSession();
-		
+			
 		Ubicacion uOttawa = new Ubicacion();
 		uOttawa.setLatitud(454208);
 		uOttawa.setLongitud(756945);
@@ -38,23 +38,17 @@ public class TestCapitalNorteCancer extends SpringTest{
 		session.save(uBrasilia);
 		
 		Ciudad ottawa = new Ciudad();
-		ottawa.setCapital(true);
 		ottawa.setNombre("Ottawa");
-		ottawa.setPais("Canada");
 		ottawa.setUbicacion(uOttawa);
 		session.save(ottawa);
 		
 		Ciudad roma = new Ciudad();
-		roma.setCapital(true);
 		roma.setNombre("Roma");
-		roma.setPais("Italia");
 		roma.setUbicacion(uRoma);
 		session.save(roma);
 		
 		Ciudad brasilia = new Ciudad();
-		brasilia.setCapital(true);
 		brasilia.setNombre("Brasilia");
-		brasilia.setPais("Brasil");
 		brasilia.setUbicacion(uBrasilia);
 		session.save(brasilia);
 		
@@ -77,7 +71,7 @@ public class TestCapitalNorteCancer extends SpringTest{
 				.createCriteria(Pais.class,"p")
 				.createAlias("p.capital", "c")
 				.createAlias("c.ubicacion", "u")
-				.add(Restrictions.ge("u.latitud", 232614))
+				.add(Restrictions.gt("u.latitud", 232614))
 				.list();
 		assertThat(pcsc).hasSize(2);
 	}

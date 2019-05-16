@@ -51,7 +51,6 @@ public class TestCiudadHemisferioSur extends SpringTest{
 		List<Ciudad> chs = getSession()
 				.createCriteria(Ciudad.class,"c")
 				.createAlias("c.ubicacion", "u")
-				.add(Restrictions.ge("u.latitud",-900000))
 				.add(Restrictions.lt("u.latitud", 0))
 				.list();
 		assertThat(chs).hasSize(2);

@@ -8,8 +8,8 @@ public class Ciudad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nombre;
-	private String pais;
-	private Boolean capital;
+	@ManyToOne
+	private Pais pais;
 	@OneToOne
 	private Ubicacion ubicacion;
 	
@@ -25,17 +25,11 @@ public class Ciudad {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getPais() {
+	public Pais getPais() {
 		return pais;
 	}
-	public void setPais(String pais) {
+	public void setPais(Pais pais) {
 		this.pais = pais;
-	}
-	public Boolean getCapital() {
-		return capital;
-	}
-	public void setCapital(Boolean capital) {
-		this.capital = capital;
 	}
 	public Ubicacion getUbicacion() {
 		return ubicacion;
